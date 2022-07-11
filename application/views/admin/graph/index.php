@@ -64,11 +64,12 @@
 								<input type="text" class="form-control" name="distance" id="distance" readonly>
 								<small>Jarak ditampilkan dalam kilometer</small>
 							</div>
-							<!-- <div class="form-group mt-2">
+
+							<div class="form-group mt-2">
 								<label>Waktu tempuh</label>
-								<input type="text" class="form-control" name="time" id="time">
+								<input type="text" class="form-control" name="time" id="timeWaktu" readonly>
 								<small>Waktu tempuh dalam menit</small>
-							</div> -->
+							</div>
 						</form>
 					</div>
 					<div class="modal-footer">
@@ -193,10 +194,35 @@
 
 		$("#start,#end").on('change', function() {
 			if ($("#start").val() != '' && $("#end").val() != '') {
+				var titikAwal = $("#start").find(":selected").attr('lat')+","+$("#start").find(":selected").attr('lng');
+				var titikAkhir = $("#end").find(":selected").attr('lat')+","+ $("#end").find(":selected").attr('lng');
+				var e = titikAwal+";"+titikAkhir;
+				var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + e
+		    	+'?geometries=geojson&steps=true&access_token=' + mapboxgl.accessToken;
+		    	console.log("e = " + e);
+		    	console.log("titikAkhir = " + titikAkhir);
+		    	var nilaiTime;
+		    	fetch(url, {
+				  method: "GET",
+				})
+			  .then(resp => resp.json())
+			  .then(function(data) {
+			  	nilaiTime = data.routes[0].duration/60;
+
+				var nilaiAkhirWaktu = nilaiTime;
+				console.log("nilaiAkhirWaktu = " + nilaiAkhirWaktu);
+				document.getElementById('timeWaktu').value = nilaiAkhirWaktu.toFixed(2);
+			  })
+			  .catch(function(error) {
+			    console.log(error);
+			  });
+		    	
 				var distance = turf.distance(turf.point([$("#start").find(":selected").attr('lng'), $("#start").find(":selected").attr('lat')]), turf.point([$("#end").find(":selected").attr('lng'), $("#end").find(":selected").attr('lat')]), {
 					units: 'kilometers'
 				}).toFixed(2);
 				$("#distance").val(distance);
+				// $("#timeWaktu").val(nilaiAkhirWaktu);
+				// console.log(turf);
 			}
 		})
 

@@ -349,6 +349,7 @@
         var coords = data.features[lastFeature].geometry.coordinates;
         var newCoords = coords.join(';');
         getMatch(newCoords);
+        console.log("newCoords =" +newCoords);
     }
 
     // membuat permintaan arah
@@ -359,6 +360,7 @@
     	req.responseType = 'json';
     	req.open('GET', url, true);
     	req.onload  = function() {
+    		console.log(req.response);
     		var jsonResponse = req.response;
     		var distance = jsonResponse.routes[0].distance*0.001;
     		var duration = jsonResponse.routes[0].duration/60;
@@ -413,6 +415,7 @@
 
     // hapus layer jika ada
     function removeRoute () {
+    	document.getElementById('keterangan').innerHTML="";
     	if (map.getSource('route')) {
     		map.removeLayer('route');
     		map.removeSource('route');
