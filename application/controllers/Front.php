@@ -13,7 +13,7 @@ class Front extends CI_Controller
 	}
 	/**
 	 * index
-	 * menampilkan data gunung
+	 * menampilkan data petshop
 	 * @return void
 	 */
 	public function hotel()
@@ -21,7 +21,7 @@ class Front extends CI_Controller
 		$jumlah_data = $this->NodeModel->countObject();
 
 		$this->load->library('pagination');
-		$config['base_url'] = site_url() . 'gunung/';
+		$config['base_url'] = site_url() . 'petshop/';
 		$config['total_rows'] = $jumlah_data;
 		$config['per_page'] = 10;
 		// Membuat Style pagination untuk BootStrap v4
@@ -46,7 +46,7 @@ class Front extends CI_Controller
 		$from = $this->uri->segment(2);
 		$this->pagination->initialize($config);
 		$data = array(
-			'title' => 'Gunung',
+			'title' => 'petshop',
 			'objectResult' => $this->NodeModel->getObjectsOffset($config['per_page'], $from)
 
 		);

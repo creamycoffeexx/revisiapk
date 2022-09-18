@@ -121,7 +121,7 @@
 	var map = new mapboxgl.Map({
 			container: 'map', // id wadah
 			style: 'mapbox://styles/mapbox/satellite-v9', // lokasi lembar gaya
-			center: [<?= DEFAULT_LNG ?>, <?= DEFAULT_LAT ?>], // posisi awal [lng, lat]
+			center: [<?= '116.8555954481450' ?>, <?= '-1.238266838684179' ?>], // posisi awal [lng, lat]
 			zoom: 9, // mulai zoom
 			logoPosition: 'top-right',
 		});

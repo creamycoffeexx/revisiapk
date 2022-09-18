@@ -143,7 +143,7 @@
 						<img src="<?= base_url('uploads/') ?>${i.picture}" class="card-img-top" alt="...">
 							<div class="card-body">
 								<h6 class="card-title">${i.name}</h6>
-								${i.type == 'object' ? `<a href="<?= site_url('gunung/detail/') ?>${i.id}" class="btn btn-primary">Lihat detail</a>` : ''}
+								${i.type == 'object' ? `<a href="<?= site_url('petshop/detail/') ?>${i.id}" class="btn btn-primary">Lihat detail</a>` : ''}
 								</div>
 							</div>
 						`)) // add popup
