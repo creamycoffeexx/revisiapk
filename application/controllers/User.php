@@ -111,7 +111,7 @@ class User extends CI_Controller
 	public function ajaxlist()
 	{
 		$datatables = new Datatables(new CodeigniterAdapter);
-		$datatables->query('SELECT id,username,password,inserted_at FROM user');
+		$datatables->query('SELECT id,username,password,type,inserted_at FROM user');
 		$datatables->hide('id');
 		$datatables->add('aksi', function ($data) {
 			return '<a href="' . site_url('admin/user/edit/' . $data['id']) . '" class="btn btn-primary"><i class="dripicons-document-edit"></i></a>&nbsp;<a href="#" onclick="deleteData(' . $data['id'] . ')" class="btn btn-danger"><i class="dripicons-trash"></i></a>';

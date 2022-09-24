@@ -46,6 +46,16 @@
 													<?= form_error('password') ?>
 												</div>
 
+												<div class="form-group">
+													<label>type</label>
+													<select name="type" id="type" class="form-control">
+  <option value="1">Admin</option>
+  <option value="2">Petshop</option>
+  <option value="0">User</option>
+</select>
+													<?= form_error('type') ?>
+												</div>
+
 												<div class="form-group mt-3">
 													<a href="<?= site_url('admin/user') ?>" class="btn btn-light">Kembali</a>
 													<button class="btn btn-primary">Simpan</button>

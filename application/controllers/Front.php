@@ -115,6 +115,8 @@ class Front extends CI_Controller
 			'nodeResult' => $this->NodeModel->getData()
 
 		);
+
+		// return var_dump($data['nodeResult'][0]);
 		$this->load->view('front/djikstra', $data);
 	}
 

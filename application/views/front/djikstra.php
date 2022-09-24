@@ -52,7 +52,7 @@
 							<div class="col-12 col-sm-4">
 								<form id="graphForm" class="mb-4 mb-sm-2">
 									<input type="hidden" id="id_graph" name="id_graph">
-									<div class="row">
+									<!-- <div class="row">
 
 										<div class="col-12 col-sm-6 mb-3">
 											<select id="start" name="start" class="form-control select2">
@@ -65,6 +65,19 @@
 											</select>
 										</div>
 
+									</div> -->
+									<div class="row">
+
+										<div class="col-12 col-sm-12 mb-3">
+											<select id="direction" name="direction" class="form-control select2">
+												<option value="">Pilih Titik Tujuan</option>
+												
+												<?php foreach ($nodeResult as $n) { ?>
+													<option lng="<?= $n->lat ?>" lat="<?= $n->lng ?>" value="<?= $n->id ?>"><?= $n->name ?></option>
+												<?php } ?>
+											</select>
+										</div>
+
 									</div>
 								</form>
 
@@ -73,9 +86,9 @@
 								<div id="map" style="height: 550px;width: 100%;"></div>
 								<!-- left side instructions -->
 								<div id='keterangan' style=" position:absolute;
-								height: 100px;
+								height: 120px;
 								margin:9px;
-								width: 20%;
+								width: 30%;
 								top:0;
 								bottom:0;
 								padding: 20px;
@@ -142,6 +155,30 @@
 		current_latitude = position.coords.latitude;
 		current_longitude = position.coords.longitude;
 
+		console.log("curren" , position.coords)
+		console.log("curren" , current_latitude)
+		console.log("curren" , current_longitude)
+
+		currentLocation()
+	}
+
+	function currentLocation(){
+		const latttt = current_latitude
+		const longggg = current_longitude
+
+		console.log("curren" , latttt)
+		console.log("curren" , longggg)
+
+		map.flyTo({
+			center: [longggg, latttt],
+				essential: true // animasi ini dianggap penting sehubungan dengan gerakan yang lebih disukai-dikurangi
+			});
+
+			marker_start = new mapboxgl.Marker({
+				color: "#ff0000",
+			})
+			.setLngLat([longggg, latttt])
+			.addTo(map)
 	}
 
 	function error() {
@@ -174,6 +211,7 @@
 		
 
 		$('#start').select2();
+		$('#direction').select2();
 		$('#end').select2();
 		var marker = [];
 
@@ -209,6 +247,7 @@
 		var marker_start;
 		var dtb_;
 		// 
+		
 		$("#start").change(function(e) {
 			e.preventDefault();
 			var start_atribute = $('#start').select2('data')[0].element.attributes;
@@ -289,8 +328,8 @@
 		var draw = new MapboxDraw({
 			displayControlsDefault: false,
 			controls: {
-				line_string: true,
-				trash: true
+				// line_string: true,
+				// trash: true
 			},
 			styles: [
             // tarik garis
@@ -346,8 +385,26 @@
         removeRoute(); // menimpa lapisan
         var data = draw.getAll();
         var lastFeature = data.features.length - 1;
+
         var coords = data.features[lastFeature].geometry.coordinates;
         var newCoords = coords.join(';');
+
+		console.log("newCoords", newCoords)
+		
+        getMatch(newCoords);
+        console.log("newCoords =" +newCoords);
+    }
+
+	function callDirection(newLang) {
+        removeRoute(); // menimpa lapisan
+        // var data = draw.getAll();
+        // var lastFeature = data.features.length - 1;
+
+
+		var newCoords = current_longitude + "," +current_latitude + ";" + newLang ;
+
+		console.log("newCoords", newCoords)
+		
         getMatch(newCoords);
         console.log("newCoords =" +newCoords);
     }
@@ -425,6 +482,17 @@
         	return;
         }
     }
+
+			$("#direction").change(function(e) {
+				var start_atribute = $('#direction').select2('data')[0].element.attributes;
+				
+				const dirlng = start_atribute.lng.value;
+				const dirlat = start_atribute.lat.value;
+
+
+				callDirection(dirlat + "," + dirlng)
+})
+
     document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 </script>
 </body>

@@ -27,10 +27,10 @@ class Login extends CI_Controller
 			$userRow = $this->UserModel->login();	
 			if (is_null($userRow)) {
 				$this->session->set_flashdata('loginError', alert('danger', '<strong>Maaf</strong>, username atau password anda salah, mohon ulangi sekali lagi !'));
-			} else if ($userRow->username === 'admin') {
+			} else if ($userRow->type == 1) {
 				$this->session->set_userdata('user', $userRow);
 				redirect('admin/dashboard');
-			} else if ($userRow->username === 'user') {
+			} else if ($userRow->type == 2 || $userRow->type == 0) {
 				$this->session->set_userdata('user', $userRow);
 				redirect('djikstra');
 			}

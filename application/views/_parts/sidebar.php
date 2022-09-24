@@ -9,7 +9,7 @@
 					<ul class="metismenu list-unstyled" id="side-menu">
 						<li class="menu-title">Menu</li>
 
-						<?php if ($this->session->userdata('user')->username === 'admin') { ?>
+						<?php if ($this->session->userdata('user')->type == 1) { ?>
 							<li>
 								<a href="<?= site_url('admin/dashboard') ?>" class="waves-effect">
 									<i class="dripicons-view-thumb"></i>
@@ -20,18 +20,6 @@
 								<a href="<?= site_url('admin/hotel') ?>" class="waves-effect">
 									<i class="mdi mdi-map-marker-radius-outline mdi-18px"></i>
 									<span>Data Petshop</span>
-								</a>
-							</li>
-							<li>
-								<a href="<?= site_url('admin/node') ?>" class="waves-effect">
-									<i class="mdi mdi-google-maps mdi-18px"></i>
-									<span>Data Node</span>
-								</a>
-							</li>
-							<li>
-								<a href="<?= site_url('admin/graph') ?>" class="waves-effect">
-									<i class="mdi mdi-map-marker-distance mdi-18px"></i>
-									<span>Crud Graph</span>
 								</a>
 							</li>
 							<li>
@@ -46,23 +34,30 @@
 									<span>Logout</span>
 								</a>
 							</li>
-						<?php } else { ?>
-							<li>
+						<?php } else if ($this->session->userdata('user')->type == 2) { ?>
+								<li>
 								<a href="<?= site_url('dashboard') ?>" class="waves-effect">
 									<i class="dripicons-view-thumb"></i>
 									<span>Beranda</span>
 								</a>
 							</li>
 							<li>
-								<a href="<?= site_url('hotel') ?>" class="waves-effect">
+								<a href="<?= site_url('admin/hotel') ?>" class="waves-effect">
 									<i class="mdi mdi-map-marker-radius-outline mdi-18px"></i>
 									<span>Daftar Petshop</span>
 								</a>
 							</li>
 							<li>
-								<a href="<?= site_url('galeri') ?>" class="waves-effect">
-									<i class="mdi mdi-image-multiple-outline mdi-18px"></i>
-									<span>Galeri</span>
+								<a href="<?= site_url('djikstra') ?>" class="waves-effect">
+									<i class="mdi mdi-map-marker-path mdi-18px"></i>
+									<span>Pencarian Rute</span>
+								</a>
+							</li>
+						<?php } else { ?>
+							<li>
+								<a href="<?= site_url('dashboard') ?>" class="waves-effect">
+									<i class="dripicons-view-thumb"></i>
+									<span>Beranda</span>
 								</a>
 							</li>
 							<li>
@@ -72,12 +67,6 @@
 								</a>
 							</li>
 							
-							<li>
-								<a href="<?= site_url('about') ?>" class="waves-effect">
-									<i class="mdi mdi-information-outline mdi-18px"></i>
-									<span>Tentang Aplikasi</span>
-								</a>
-							</li>
 							<!-- <li>
 								<a href="<?= site_url('login') ?>" class=" waves-effect">
 									<i class="mdi mdi-18 mdi-login"></i>

@@ -37,7 +37,7 @@ class Objects extends CI_Controller
 	public function add()
 	{
 
-		$this->form_validation->set_rules('name', 'Nama Gunung', 'required', ['required' => '%s tidak boleh kosong ']);
+		$this->form_validation->set_rules('name', 'Nama Petshop', 'required', ['required' => '%s tidak boleh kosong ']);
 		$this->form_validation->set_rules('lat', 'Latitude', 'required', ['required' => '%s tidak boleh kosong ']);
 		$this->form_validation->set_rules('lng', 'Longitude', 'required', ['required' => '%s tidak boleh kosong ']);
 
@@ -46,7 +46,7 @@ class Objects extends CI_Controller
 			if ($_FILES['userfile']['name'] != '') {
 				$upload = $this->upload();
 				if (array_key_exists('success', $upload)) {
-					$_POST['type'] = 'object';
+					
 					$_POST['picture'] = $upload['success']['file_name'];
 					$this->NodeModel->add();
 					$this->session->set_flashdata('statusMessage', alert('success', 'Data Petshop berhasil ditambah'));
@@ -138,7 +138,7 @@ class Objects extends CI_Controller
 	public function ajaxlist()
 	{
 		$datatables = new Datatables(new CodeigniterAdapter);
-		$datatables->query('SELECT id,name,lat,lng FROM node WHERE type = "object"');
+		$datatables->query('SELECT id,name,lat,lng FROM node');
 		$datatables->hide('id');
 		$datatables->add('aksi', function ($data) {
 			return '<a href="' . site_url('admin/hotel/edit/' . $data['id']) . '" class="btn btn-primary"><i class="dripicons-document-edit"></i></a>&nbsp;<a href="#" onclick="deleteData(' . $data['id'] . ')" class="btn btn-danger"><i class="dripicons-trash"></i></a>';

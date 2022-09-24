@@ -43,6 +43,7 @@
 													<tr>
 														<th>Username</th>
 														<th>password</th>
+														<th>Type</th>
 														<th>diinsert pada</th>
 														<th>aksi</th>
 													</tr>

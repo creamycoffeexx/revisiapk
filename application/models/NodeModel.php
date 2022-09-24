@@ -78,7 +78,7 @@ class NodeModel extends CI_Model
 	 */
 	public function getObjectsOffset($limit, $offset)
 	{
-		return $this->db->get_where($this->tb_, ['type' => 'object'], $limit, $offset)->result();
+		return $this->db->get($this->tb_, $limit, $offset)->result();
 	}
 	/**
 	 * getNodeData
@@ -87,7 +87,7 @@ class NodeModel extends CI_Model
 	 */
 	public function getNodeData()
 	{
-		return $this->db->get_where($this->tb_, ['type' => '-'])->result();
+		return $this->db->get($this->tb_)->result();
 	}
 	/**
 	 * getNodeData
@@ -113,7 +113,7 @@ class NodeModel extends CI_Model
 	 */
 	public function countObject()
 	{
-		$this->db->where('type', 'object');
+		// $this->db->where('type', 'object');
 		$this->db->from($this->tb_);
 		return $this->db->count_all_results();
 	}

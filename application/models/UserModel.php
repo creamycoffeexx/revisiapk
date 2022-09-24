@@ -22,7 +22,7 @@ class UserModel extends CI_Model
 	 */
 	public function add()
 	{
-		$this->db->insert($this->tb_, array('username' => $_POST['username'], 'password' => $_POST['password']));
+		$this->db->insert($this->tb_, array('username' => $_POST['username'], 'password' => $_POST['password'],'type' => $_POST['type']));
 	}
 	/**
 	 * edit
