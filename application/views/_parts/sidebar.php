@@ -68,6 +68,12 @@
 							</li>
 							
 							<!-- <li>
+								<a href="<?= site_url('about') ?>" class="waves-effect">
+									<i class="mdi mdi-information-outline mdi-18px"></i>
+									<span>Tentang Aplikasi</span>
+								</a>
+							</li> -->
+							<!-- <li>
 								<a href="<?= site_url('login') ?>" class=" waves-effect">
 									<i class="mdi mdi-18 mdi-login"></i>
 									<span>Login</span>

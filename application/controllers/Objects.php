@@ -24,14 +24,14 @@ class Objects extends CI_Controller
 	public function index()
 	{
 		$data = array(
-			'title' => 'Gunung'
+			'title' => 'petshop'
 		);
 		$this->load->view('admin/objects/index', $data);
 	}
 
 	/**
 	 * add
-	 * untuk menampilkan form dan menyimpan data gunung
+	 * untuk menampilkan form dan menyimpan data petshop
 	 * @return void
 	 */
 	public function add()
@@ -60,14 +60,14 @@ class Objects extends CI_Controller
 		}
 
 		$data = array(
-			'title' => 'Gunung'
+			'title' => 'petshop'
 		);
 		$this->load->view('admin/objects/add', $data);
 	}
 
 	/**
 	 * edit
-	 * untuk menampilkan form dan memperbarui data gunung
+	 * untuk menampilkan form dan memperbarui data petshop
 	 * @return void
 	 */
 	public function edit($id)
