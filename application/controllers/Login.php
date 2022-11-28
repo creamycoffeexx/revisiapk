@@ -29,7 +29,7 @@ class Login extends CI_Controller
 				$this->session->set_flashdata('loginError', alert('danger', '<strong>Maaf</strong>, username atau password anda salah, mohon ulangi sekali lagi !'));
 			} else if ($userRow->type == 1) {
 				$this->session->set_userdata('user', $userRow);
-				redirect('admin/dashboard');
+				redirect('admin/user');
 			} else if ($userRow->type == 2 || $userRow->type == 0) {
 				$this->session->set_userdata('user', $userRow);
 				redirect('djikstra');

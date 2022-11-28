@@ -18,7 +18,7 @@ class User extends CI_Controller
 
 	/**
 	 * index
-	 * menampilkan halaman daftar rs rujukan
+	 * menampilkan halaman daftar petshop
 	 * @return void
 	 */
 	public function index()
@@ -31,7 +31,7 @@ class User extends CI_Controller
 
 	/**
 	 * add
-	 * untuk menampilkan form dan menyimpan data RS rujukan
+	 * untuk menampilkan form dan menyimpan data petshop
 	 * @return void
 	 */
 	public function add()
@@ -55,7 +55,7 @@ class User extends CI_Controller
 
 	/**
 	 * edit
-	 * untuk menampilkan form dan memperbarui data rs rujukan
+	 * untuk menampilkan form dan memperbarui data petshop
 	 * @return void
 	 */
 	public function edit($id)
@@ -87,7 +87,7 @@ class User extends CI_Controller
 	public function delete($id)
 	{
 		$this->UserModel->delete($id);
-		$this->session->set_flashdata('statusMessage', alert('success', 'Data RS Rujukan berhasil dihapus'));
+		$this->session->set_flashdata('statusMessage', alert('success', 'Data petshop berhasil dihapus'));
 		redirect('admin/user');
 	}
 
@@ -123,7 +123,7 @@ class User extends CI_Controller
 	{
 		$config['upload_path']          = './uploads/';
 		$config['allowed_types']        = 'gif|jpg|png';
-		$config['max_size']             = 100;
+		$config['max_size']             = 512000;
 		$config['encrypt_name']             = true;
 
 		$this->load->library('upload', $config);

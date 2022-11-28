@@ -18,7 +18,7 @@ class Node extends CI_Controller
 
 	/**
 	 * index
-	 * menampilkan halaman daftar rs rujukan
+	 * menampilkan halaman daftar petshop
 	 * @return void
 	 */
 	public function index()
@@ -31,7 +31,7 @@ class Node extends CI_Controller
 
 	/**
 	 * add
-	 * untuk menampilkan form dan menyimpan data RS rujukan
+	 * untuk menampilkan form dan menyimpan data petshop
 	 * @return void
 	 */
 	public function add()
@@ -59,13 +59,13 @@ class Node extends CI_Controller
 
 	/**
 	 * edit
-	 * untuk menampilkan form dan memperbarui data rs rujukan
+	 * untuk menampilkan form dan memperbarui data petshop
 	 * @return void
 	 */
 	public function edit($id)
 	{
 
-		$this->form_validation->set_rules('name', 'Nama rumah sakit', 'required', ['required' => '%s tidak boleh kosong ']);
+		$this->form_validation->set_rules('name', 'Nama petshop', 'required', ['required' => '%s tidak boleh kosong ']);
 		$this->form_validation->set_rules('lat', 'Latitude', 'required', ['required' => '%s tidak boleh kosong ']);
 		$this->form_validation->set_rules('lng', 'Longitude', 'required', ['required' => '%s tidak boleh kosong ']);
 
@@ -131,7 +131,7 @@ class Node extends CI_Controller
 	{
 		$config['upload_path']          = './uploads/';
 		$config['allowed_types']        = 'gif|jpg|png';
-		$config['max_size']             = 100;
+		$config['max_size']             = 512000;
 		$config['encrypt_name']             = true;
 
 		$this->load->library('upload', $config);

@@ -83,7 +83,7 @@
 
 
 
-			<?php $this->load->view('_parts/footer') ?>
+			<!-- <?php $this->load->view('_parts/footer') ?> -->
 		</div>
 		<!-- end main content-->
 

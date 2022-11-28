@@ -16,7 +16,7 @@ class Front extends CI_Controller
 	 * menampilkan data petshop
 	 * @return void
 	 */
-	public function hotel()
+	public function petshop()
 	{
 		$jumlah_data = $this->NodeModel->countObject();
 
@@ -50,16 +50,16 @@ class Front extends CI_Controller
 			'objectResult' => $this->NodeModel->getObjectsOffset($config['per_page'], $from)
 
 		);
-		$this->load->view('front/hotel', $data);
+		$this->load->view('front/petshop', $data);
 	}
-	public function detailHotel($id)
+	public function detailpetshop($id)
 	{
 		$data = array(
-			'title' => 'Hotel',
+			'title' => 'petshop',
 			'objectRow' => $this->NodeModel->getById($id)
 
 		);
-		$this->load->view('front/detailHotel', $data);
+		$this->load->view('front/detailpetshop', $data);
 	}
 
 	/**

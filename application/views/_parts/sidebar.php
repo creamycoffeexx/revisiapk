@@ -10,22 +10,22 @@
 						<li class="menu-title">Menu</li>
 
 						<?php if ($this->session->userdata('user')->type == 1) { ?>
-							<li>
+							<!-- <li>
 								<a href="<?= site_url('admin/dashboard') ?>" class="waves-effect">
 									<i class="dripicons-view-thumb"></i>
 									<span>Beranda</span>
 								</a>
-							</li>
-							<li>
-								<a href="<?= site_url('admin/hotel') ?>" class="waves-effect">
-									<i class="mdi mdi-map-marker-radius-outline mdi-18px"></i>
-									<span>Data Petshop</span>
-								</a>
-							</li>
+							</li> -->
 							<li>
 								<a href="<?= site_url('admin/user') ?>" class="waves-effect">
 									<i class="mdi mdi-account-group-outline mdi-18px"></i>
 									<span>Pengguna</span>
+								</a>
+							</li>
+							<li>
+								<a href="<?= site_url('admin/petshop') ?>" class="waves-effect">
+									<i class="mdi mdi-map-marker-radius-outline mdi-18px"></i>
+									<span>Data Petshop</span>
 								</a>
 							</li>
 							<li>
@@ -35,14 +35,14 @@
 								</a>
 							</li>
 						<?php } else if ($this->session->userdata('user')->type == 2) { ?>
-								<li>
+								<!-- <li>
 								<a href="<?= site_url('dashboard') ?>" class="waves-effect">
 									<i class="dripicons-view-thumb"></i>
 									<span>Beranda</span>
 								</a>
-							</li>
+							</li> -->
 							<li>
-								<a href="<?= site_url('admin/hotel') ?>" class="waves-effect">
+								<a href="<?= site_url('admin/petshop') ?>" class="waves-effect">
 									<i class="mdi mdi-map-marker-radius-outline mdi-18px"></i>
 									<span>Daftar Petshop</span>
 								</a>
@@ -54,12 +54,12 @@
 								</a>
 							</li>
 						<?php } else { ?>
-							<li>
+							<!-- <li>
 								<a href="<?= site_url('dashboard') ?>" class="waves-effect">
 									<i class="dripicons-view-thumb"></i>
 									<span>Beranda</span>
 								</a>
-							</li>
+							</li> -->
 							<li>
 								<a href="<?= site_url('djikstra') ?>" class="waves-effect">
 									<i class="mdi mdi-map-marker-path mdi-18px"></i>

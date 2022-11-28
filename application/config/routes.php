@@ -5,12 +5,12 @@ $route['login'] = 'Login/index';
 $route['logout'] = 'Logout/logout';
 #admin
 $route['admin/dashboard'] = 'Dashboard';
-$route['admin/hotel'] = 'Objects';
-$route['admin/hotel/add'] = 'Objects/add';
-$route['admin/hotel/edit/(:num)'] = 'Objects/edit/$1';
-$route['admin/hotel/delete/(:num)'] = 'Objects/delete/$1';
-$route['admin/hotel/ajax/list'] = 'Objects/ajaxlist';
-$route['admin/hotel/ajax/data'] = 'Objects/ajaxdata';
+$route['admin/petshop'] = 'Objects';
+$route['admin/petshop/add'] = 'Objects/add';
+$route['admin/petshop/edit/(:num)'] = 'Objects/edit/$1';
+$route['admin/petshop/delete/(:num)'] = 'Objects/delete/$1';
+$route['admin/petshop/ajax/list'] = 'Objects/ajaxlist';
+$route['admin/petshop/ajax/data'] = 'Objects/ajaxdata';
 $route['admin/node'] = 'Node';
 $route['admin/node/add'] = 'Node/add';
 $route['admin/node/edit/(:num)'] = 'Node/edit/$1';
@@ -34,9 +34,9 @@ $route['admin/user/ajax/list'] = 'User/ajaxlist';
 
 #user
 $route['dashboard'] = 'Dashboard';
-$route['hotel'] = 'Front/hotel';
-$route['hotel/(:num)'] = 'Front/hotel/$1';
-$route['hotel/detail/(:num)'] = 'Front/detailHotel/$1';
+$route['petshop'] = 'Front/petshop';
+$route['petshop/(:num)'] = 'Front/petshop/$1';
+$route['petshop/detail/(:num)'] = 'Front/detailpetshop/$1';
 $route['galeri'] = 'Front/galeri';
 $route['djikstra'] = 'Front/djikstra';
 $route['djikstra2'] = 'Front/djikstra2';

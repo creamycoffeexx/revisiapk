@@ -36,21 +36,21 @@
 		</div>
 
 		<!-- Search input -->
-		<div class="search-wrap" id="search-wrap">
+		<!-- <div class="search-wrap" id="search-wrap">
 			<div class="search-bar">
 				<input class="search-input form-control" placeholder="Search" />
 				<a href="#" class="close-search toggle-search" data-target="#search-wrap">
 					<i class="mdi mdi-close-circle"></i>
 				</a>
 			</div>
-		</div>
-
+		</div> -->
+<!-- 
 		<div class="d-flex">
 			<div class="dropdown d-none d-lg-inline-block">
 				<button type="button" class="btn header-item toggle-search noti-icon waves-effect" data-target="#search-wrap">
 					<i class="mdi mdi-magnify"></i>
 				</button>
-			</div>
+			</div> -->
 
 			<?php if ($this->session->has_userdata('user')) { ?>
 				<div class="dropdown d-inline-block">
@@ -61,9 +61,9 @@
 					</button>
 					<div class="dropdown-menu dropdown-menu-end">
 					
-						<a class="dropdown-item d-block" href="#"><span class="badge badge-success float-end">11</span><i class="mdi mdi-cog-outline font-size-16 align-middle me-1"></i> Settings</a>
+						<!-- <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-end">11</span><i class="mdi mdi-cog-outline font-size-16 align-middle me-1"></i> Settings</a> -->
 						
-						<div class="dropdown-divider"></div>
+						<!-- <div class="dropdown-divider"></div> -->
 						<a class="dropdown-item text-danger" href="<?= site_url('logout') ?>"><i class="mdi mdi-power font-size-16 align-middle me-1 text-danger"></i> Logout</a>
 					</div>
 				</div>

@@ -232,7 +232,7 @@
 							<img src="<?= base_url('uploads/') ?>${i.picture}" class="card-img-top" alt="...">
 							<div class="card-body">
 							<h5 class="card-title">${i.name}</h5>
-							<a href="<?= site_url('hotel/detail/') ?>${i.id}" target="blank" class="btn btn-primary">Lihat detail</a>
+							<a href="<?= site_url('petshop/detail/') ?>${i.id}" target="blank" class="btn btn-primary">Lihat detail</a>
 							</div>
 							</div>
 						`)) // tambahkan munculan
@@ -420,7 +420,7 @@
     		console.log(req.response);
     		var jsonResponse = req.response;
     		var distance = jsonResponse.routes[0].distance*0.001;
-    		var duration = jsonResponse.routes[0].duration/60;
+    		var duration = jsonResponse.routes[0].duration/240;
     		var steps = jsonResponse.routes[0].legs[0].steps;
     		var coords = jsonResponse.routes[0].geometry;
           //  console.log(steps);
@@ -429,7 +429,7 @@
           // console.log(duration);
 
             // dapatkan jarak dan durasi
-            keterangan.insertAdjacentHTML('beforeend', '<p>' +  'Jarak Rute: ' + distance.toFixed(2) + ' km<br>Durasi Waktu: ' + duration.toFixed(2) + ' minutes' + '</p>');
+            keterangan.insertAdjacentHTML('beforeend', '<p>' +  'Jarak Rute: ' + distance.toFixed(2) + ' km<br>Durasi Waktu: ' + duration.toFixed(0) + ' minutes' + '</p>');
 
             // tambahkan rute ke peta
             addRoute(coords);

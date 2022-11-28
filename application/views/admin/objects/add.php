@@ -34,7 +34,7 @@
 										<div class="p-0">
 											<p>Berikut adalah form data Petshop. silahkan lengkapi data-data dibawah ini dengan lengkap dan benar</p>
 											<hr />
-											<form action="<?= site_url('admin/hotel/add') ?>" method="POST" enctype="multipart/form-data">
+											<form action="<?= site_url('admin/petshop/add') ?>" method="POST" enctype="multipart/form-data">
 												<div class="form-group">
 													<label>Nama Petshop</label>
 													<input type="text" name="name" class="form-control" value="<?= set_value('name') ?>">
@@ -64,7 +64,7 @@
 												</div>
 
 												<div class="form-group mt-3">
-													<a href="<?= site_url('admin/hotel') ?>" class="btn btn-light">Kembali</a>
+													<a href="<?= site_url('admin/petshop') ?>" class="btn btn-light">Kembali</a>
 													<button class="btn btn-primary">Simpan</button>
 												</div>
 
@@ -102,7 +102,7 @@
 		var map = new mapboxgl.Map({
 			container: 'map', // container id
 			style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-			center: [122.514900, -3.972201], // starting position [lng, lat]
+			center: [116.85559544814507, -1.238266838684179], // starting position [lng, lat]
 			zoom: 10, // starting zoom
 			logoPosition: 'top-right',
 		});
@@ -139,7 +139,7 @@
 						<img src="<?= base_url('uploads/') ?>${i.picture}" class="card-img-top" alt="...">
 							<div class="card-body">
 								<h6 class="card-title">${i.name}</h6>
-								${i.type == 'object' ? `<a href="<?= site_url('hotel/detail/') ?>${i.id}" class="btn btn-primary">Lihat detail</a>` : ''}
+								${i.type == 'object' ? `<a href="<?= site_url('petshop/detail/') ?>${i.id}" class="btn btn-primary">Lihat detail</a>` : ''}
 								</div>
 							</div>
 						`)) // add popup

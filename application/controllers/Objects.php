@@ -18,7 +18,7 @@ class Objects extends CI_Controller
 
 	/**
 	 * index
-	 * menampilkan halaman daftar rs rujukan
+	 * menampilkan halaman daftar petshop
 	 * @return void
 	 */
 	public function index()
@@ -50,7 +50,7 @@ class Objects extends CI_Controller
 					$_POST['picture'] = $upload['success']['file_name'];
 					$this->NodeModel->add();
 					$this->session->set_flashdata('statusMessage', alert('success', 'Data Petshop berhasil ditambah'));
-					redirect('admin/hotel');
+					redirect('admin/petshop');
 				} else {
 					$this->session->set_flashdata('errorUpload', '<br/><span class="text-danger">' . $upload['error'] . '</span>');
 				}
@@ -73,7 +73,7 @@ class Objects extends CI_Controller
 	public function edit($id)
 	{
 
-		$this->form_validation->set_rules('name', 'Nama rumah sakit', 'required', ['required' => '%s tidak boleh kosong ']);
+		$this->form_validation->set_rules('name', 'Nama petshop', 'required', ['required' => '%s tidak boleh kosong ']);
 		$this->form_validation->set_rules('lat', 'Latitude', 'required', ['required' => '%s tidak boleh kosong ']);
 		$this->form_validation->set_rules('lng', 'Longitude', 'required', ['required' => '%s tidak boleh kosong ']);
 
@@ -84,7 +84,7 @@ class Objects extends CI_Controller
 				if (array_key_exists('success', $upload)) {
 					$_POST['picture'] = $upload['success']['file_name'];
 					$this->NodeModel->edit();
-					redirect('admin/hotel');
+					redirect('admin/petshop');
 					$this->session->set_flashdata('statusMessage', alert('success', 'Data petshop berhasil diperbarui'));
 				} else {
 					$this->session->set_flashdata('errorUpload', '<br/><span class="text-danger">' . $upload['error'] . '</span>');
@@ -93,7 +93,7 @@ class Objects extends CI_Controller
 				$_POST['picture'] = $_POST['old_picture'];
 				$this->NodeModel->edit();
 				$this->session->set_flashdata('statusMessage', alert('success', 'Data petshop berhasil diperbarui'));
-				redirect('admin/hotel');
+				redirect('admin/petshop');
 			}
 		}
 
@@ -115,7 +115,7 @@ class Objects extends CI_Controller
 	{
 		$this->NodeModel->delete($id);
 		$this->session->set_flashdata('statusMessage', alert('success', 'Data petshop berhasil dihapus'));
-		redirect('admin/hotel');
+		redirect('admin/petshop');
 	}
 
 
@@ -141,7 +141,7 @@ class Objects extends CI_Controller
 		$datatables->query('SELECT id,name,lat,lng FROM node');
 		$datatables->hide('id');
 		$datatables->add('aksi', function ($data) {
-			return '<a href="' . site_url('admin/hotel/edit/' . $data['id']) . '" class="btn btn-primary"><i class="dripicons-document-edit"></i></a>&nbsp;<a href="#" onclick="deleteData(' . $data['id'] . ')" class="btn btn-danger"><i class="dripicons-trash"></i></a>';
+			return '<a href="' . site_url('admin/petshop/edit/' . $data['id']) . '" class="btn btn-primary"><i class="dripicons-document-edit"></i></a>&nbsp;<a href="#" onclick="deleteData(' . $data['id'] . ')" class="btn btn-danger"><i class="dripicons-trash"></i></a>';
 		});
 		echo $datatables->generate();
 	}
@@ -150,7 +150,7 @@ class Objects extends CI_Controller
 	{
 		$config['upload_path']          = './uploads/';
 		$config['allowed_types']        = 'gif|jpg|png';
-		$config['max_size']             = 100;
+		$config['max_size']             = 512000;
 		$config['encrypt_name']             = true;
 
 		$this->load->library('upload', $config);

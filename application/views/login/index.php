@@ -40,7 +40,7 @@
 											<img src="assets/maps.png" height="75" alt="logo">
 										</a>
 
-										<h5 class="text-primary mb-2 mt-4">Welcome Back Apk Djikstra  !</h5>
+										<h5 class="text-primary mb-2 mt-4">HALAMAN LOGIN</h5>
 									</div>
 
 

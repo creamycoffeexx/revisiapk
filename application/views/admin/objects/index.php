@@ -33,7 +33,7 @@
 							<div class="col-lg-6">
 								<div class="card">
 									<div class="card-body">
-										<a href="<?= site_url('admin/hotel/add') ?>" class="btn btn-primary mb-3">Tambah Titik Petshop</a>
+										<a href="<?= site_url('admin/petshop/add') ?>" class="btn btn-primary mb-3">Tambah Titik Petshop</a>
 										<div class="p-0 table-responsive">
 											<p>Berikut adalah data Petshop yang terdaftar.</p>
 											<?= $this->session->flashdata('statusMessage') ?>
@@ -93,7 +93,7 @@
 			"serverSide": true,
 			"responsive": true,
 			"ajax": {
-				"url": "<?= site_url('admin/hotel/ajax/list') ?>",
+				"url": "<?= site_url('admin/petshop/ajax/list') ?>",
 				"type": "POST",
 			}
 		});
@@ -116,7 +116,7 @@
 						<img src="<?= base_url('uploads/') ?>${i.picture}" class="card-img-top" alt="...">
 							<div class="card-body">
 								<h6 class="card-title">${i.name}</h6>
-								${i.type == 'object' ? `<a href="<?= site_url('hotel/detail/') ?>${i.id}" class="btn btn-primary">Lihat detail</a>` : ''}
+								${i.type == 'object' ? `<a href="<?= site_url('petshop/detail/') ?>${i.id}" class="btn btn-primary">Lihat detail</a>` : ''}
 								</div>
 							</div>
 						`)) // add popup
@@ -130,7 +130,7 @@
 		function deleteData(id) {
 			var conf = confirm('Apaakah anda yakin untuk menghapus data ini ?');
 			if (conf) {
-				window.location = "<?= site_url('admin/hotel/delete/') ?>" + id;
+				window.location = "<?= site_url('admin/petshop/delete/') ?>" + id;
 			}
 		}
 	</script>

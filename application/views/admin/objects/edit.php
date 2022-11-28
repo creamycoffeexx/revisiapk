@@ -34,7 +34,7 @@
 										<div class="p-0">
 											<p>Berikut adalah form data petshop. silahkan lengkapi data-data dibawah ini dengan lengkap dan benar</p>
 											<hr />
-											<form action="<?= site_url('admin/hotel/edit/' . $rsRow->id) ?>" method="POST" enctype="multipart/form-data">
+											<form action="<?= site_url('admin/petshop/edit/' . $rsRow->id) ?>" method="POST" enctype="multipart/form-data">
 												<input type="hidden" name="id" value="<?= $rsRow->id ?>">
 												<div class="form-group">
 													<label>Petshop</label>
@@ -68,7 +68,7 @@
 												</div>
 
 												<div class="form-group mt-3">
-													<a href="<?= site_url('admin/hotel') ?>" class="btn btn-light">Kembali</a>
+													<a href="<?= site_url('admin/petshop') ?>" class="btn btn-light">Kembali</a>
 													<button class="btn btn-primary">Simpan</button>
 												</div>
 
@@ -106,8 +106,8 @@
 		var map = new mapboxgl.Map({
 			container: 'map', // container id
 			style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
-			center: [<?= DEFAULT_LNG ?>, <?= DEFAULT_LAT ?>], // starting position [lng, lat]
-			zoom: <?= DEFAULT_ZOOM ?>, // starting zoom
+			center: [116.85559544814507, -1.238266838684179], // starting position [lng, lat]
+			zoom: 10, // starting zoom
 			logoPosition: 'top-right',
 		});
 

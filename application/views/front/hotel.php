@@ -39,7 +39,7 @@
 										<img class="card-img-top" style="height:200px;object-fit:cover;" src="<?= base_url('uploads/' . $gng->picture) ?>" alt="Card image cap">
 										<div class="card-body">
 											<h5 class="card-title"><?= $gng->name ?></h5>
-											<p class="card-text text-sm"><?= substr($gng->desc, 0, 50) . '...' ?><br /><a href="<?= site_url('hotel/detail/' . $gng->id) ?>"><strong>Selengkapnya</strong></a></p>
+											<p class="card-text text-sm"><?= substr($gng->desc, 0, 50) . '...' ?><br /><a href="<?= site_url('petshop/detail/' . $gng->id) ?>"><strong>Selengkapnya</strong></a></p>
 										</div>
 									</div>
 								</div>
