@@ -197,7 +197,7 @@
 				var titikAwal = $("#start").find(":selected").attr('lat')+","+$("#start").find(":selected").attr('lng');
 				var titikAkhir = $("#end").find(":selected").attr('lat')+","+ $("#end").find(":selected").attr('lng');
 				var e = titikAwal+";"+titikAkhir;
-				var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + e
+				var url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + e
 		    	+'?geometries=geojson&steps=true&access_token=' + mapboxgl.accessToken;
 		    	console.log("e = " + e);
 		    	console.log("titikAkhir = " + titikAkhir);

@@ -411,7 +411,7 @@
 
     // membuat permintaan arah
     function getMatch(e) {
-    	var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + e
+    	var url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + e
     	+'?geometries=geojson&steps=true&access_token=' + mapboxgl.accessToken;
     	var req = new XMLHttpRequest();
     	req.responseType = 'json';
@@ -420,7 +420,7 @@
     		console.log(req.response);
     		var jsonResponse = req.response;
     		var distance = jsonResponse.routes[0].distance*0.001;
-    		var duration = jsonResponse.routes[0].duration/240;
+    		var duration = jsonResponse.routes[0].duration/60;
     		var steps = jsonResponse.routes[0].legs[0].steps;
     		var coords = jsonResponse.routes[0].geometry;
           //  console.log(steps);

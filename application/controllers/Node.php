@@ -74,7 +74,7 @@ class Node extends CI_Controller
 			$_POST['desc'] = '-';
 			$_POST['picture'] = '-';
 			$this->NodeModel->edit();
-			$this->session->set_flashdata('statusMessage', alert('success', 'Data Rumah berhasil diperbarui'));
+			$this->session->set_flashdata('statusMessage', alert('success', 'Data berhasil diperbarui'));
 			redirect('admin/node');
 		}
 

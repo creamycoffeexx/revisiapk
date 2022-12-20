@@ -178,36 +178,36 @@ class Front extends CI_Controller
 	 *
 	 * @return void
 	 */
-	public function pedoman()
-	{
-		$data = array(
-			'title' => 'Pedoman Pendakian',
+	// public function pedoman()
+	// {
+	// 	$data = array(
+	// 		'title' => 'Pedoman map',
 
-		);
-		$this->load->view('front/pedoman', $data);
-	}
-	/**
-	 * tentang
-	 *
-	 * @return void
-	 */
-	public function about()
-	{
-		$data = array(
-			'title' => 'Tentang Aplikasi',
+	// 	);
+	// 	$this->load->view('front/pedoman', $data);
+	// }
+	// /**
+	//  * tentang
+	//  *
+	//  * @return void
+	//  */
+	// public function about()
+	// {
+	// 	$data = array(
+	// 		'title' => 'Tentang Aplikasi',
 
-		);
-		$this->load->view('front/about', $data);
-	}
+	// 	);
+	// 	$this->load->view('front/about', $data);
+	// }
 
-	public function test()
-	{
-		$data = array(
-			'title' => 'Tentang Aplikasi',
+	// public function test()
+	// {
+	// 	$data = array(
+	// 		'title' => 'Tentang Aplikasi',
 
-		);
-		$this->load->view('front/about', $data);
-	}
+	// 	);
+	// 	$this->load->view('front/about', $data);
+	// }
 
 	
 }

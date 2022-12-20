@@ -52,12 +52,13 @@ class Djikstra
 		$g_len = count($this->graf);
 		while ($g_len--) {
 			if ($this->current_node == '') {
-				// Start by setting the starting node (A) as the current node.
+				// menentukan titik awal (A) dengan nilai 0
 				$this->current_node = $this->lok_asal;
 				$this->shortest_distance[$this->current_node] = 0;
 			}
 
-			// Check all the nodes connected to A and update their “Distance from A” and set their “previous node” to “A”.
+			//cek semua node yang terhubung dengan A dan update mereka "jarak dari A" dan setel "node sebelumnya" menjadi "A" 
+			
 			$checkAllNodes = $this->checkAllNodes($this->current_node);
 
 			$this->detail_perhitungan .= '<div class="">';
@@ -88,14 +89,16 @@ class Djikstra
 					}
 				}
 
-				// Set the current node (A) to “visited” and use the closest unvisited node to A as the current node (e.g. in this case: Node C).
+				// setel node saat ini (A) untuk berkunjung dan gunakan node terdekat yang belum dikunjungi sebagai node selanjutnya
+				
 				array_push($this->visited_node, $this->current_node);
 
 				$prev = array_filter($this->previous_node, function ($e) {
 					return $e == $this->current_node;
 				});
 
-				// use the closest unvisited node to A as the current node
+				// digunakan untuk mencari node terdekat yang belum dikunjungi untuk A sebagai node saat ini
+				
 				$prev = array_keys($prev);
 				$temp = array();
 				for ($i  = 0; $i < count($prev); $i++) {
