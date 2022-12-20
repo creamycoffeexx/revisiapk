@@ -57,6 +57,15 @@
 													</div>
 												</div>
 
+												<div class="row">
+													<div class="col-6"><label>Tipe</label>
+														<select name="type" id="type" class="form-control">
+															<option value="">Petshop</option>
+															<option value="-">Jalan</option>
+														</select>
+													</div>
+												</div>
+
 												<div class="form-group mt-2">
 													<label>Image</label>
 													<input type="file" name="userfile">
