@@ -123,8 +123,6 @@
 <?php $this->load->view('_parts/js') ?>
 <script src="<?= base_url() ?>assets/libs/select2/js/select2.min.js"></script>
 <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
-
-
 <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 	<script src="<?= base_url() ?>assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -148,6 +146,7 @@
 		navigator.geolocation.getCurrentPosition(success, error);
 	}
 
+	var routes = []
 	var current_latitude = '';
 	var current_longitude = '';
 
@@ -155,20 +154,13 @@
 		current_latitude = position.coords.latitude;
 		current_longitude = position.coords.longitude;
 
-		console.log("curren" , position.coords)
-		console.log("curren" , current_latitude)
-		console.log("curren" , current_longitude)
-
 		currentLocation()
 	}
 
 	function currentLocation(){
 		const latttt = current_latitude
 		const longggg = current_longitude
-
-		console.log("curren" , latttt)
-		console.log("curren" , longggg)
-
+		console.log([longggg, latttt])
 		map.flyTo({
 			center: [longggg, latttt],
 				essential: true // animasi ini dianggap penting sehubungan dengan gerakan yang lebih disukai-dikurangi
@@ -237,12 +229,14 @@
 							</div>
 						`)) // tambahkan munculan
 						.addTo(map));
+					}else{
+						routes.push(i)
 					}
+
+					console.log(routes)
 				})
 			}
-
 		});
-
 
 		var marker_start;
 		var dtb_;
@@ -388,11 +382,7 @@
 
         var coords = data.features[lastFeature].geometry.coordinates;
         var newCoords = coords.join(';');
-
-		console.log("newCoords", newCoords)
 		
-        getMatch(newCoords);
-        console.log("newCoords =" +newCoords);
     }
 
 	function callDirection(newLang) {
@@ -402,15 +392,44 @@
 
 
 		var newCoords = current_longitude + "," +current_latitude + ";" + newLang ;
-
-		console.log("newCoords", newCoords)
 		
-        getMatch(newCoords);
-        console.log("newCoords =" +newCoords);
+        getMatch(newCoords, newLang);
     }
 
     // membuat permintaan arah
-    function getMatch(e) {
+    function getMatch(e, r) {
+		var shorteshPath = {
+			'data' : '',
+			'value' : 0
+		}
+
+		// djisktar
+		routes.map((res) => {
+			let dis = turf.distance(turf.point([r.split(',')[1], r.split(',')[0]]), turf.point([res.lng, res.lat]), {
+										units: 'kilometers'
+									})
+			
+									console.log(shorteshPath.value)
+
+			if(shorteshPath.value){
+				if(dis < shorteshPath.value){
+					shorteshPath = {
+						data : res.name,
+						value : dis
+					}
+				}
+				
+			}else{
+				shorteshPath = {
+					data : res.name,
+					value : dis
+				}
+			}
+			
+		console.log(shorteshPath)
+		})
+
+
     	var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + e
     	+'?geometries=geojson&steps=true&access_token=' + mapboxgl.accessToken;
     	var req = new XMLHttpRequest();
